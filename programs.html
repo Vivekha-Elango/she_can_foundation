@@ -32,6 +32,34 @@
         height: 70px;
       }
     }
+    
+    /* Program card image styles */
+    .program-card {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .program-card-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      z-index: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .program-card:hover .program-card-bg {
+      opacity: 0.25;
+    }
+    
+    .program-card-content {
+      position: relative;
+      z-index: 1;
+    }
   </style>
 </head>
 <body>
@@ -55,7 +83,7 @@
   </div>
 </nav>
 
-<!-- ✅ CRITICAL FIX: Spacer div -->
+<!-- Spacer -->
 <div class="navbar-spacer"></div>
 
 <!-- Programs Hero -->
@@ -66,57 +94,77 @@
   </div>
 </div>
 
-<!-- Programs Grid -->
+<!-- Programs Grid with Images -->
 <section class="programs-section" style="padding: 2rem 0 4rem;">
   <div class="container">
     <div class="programs-grid">
-      <!-- Program 1 -->
+      
+      <!-- Program 1: Digital Diva Bootcamp -->
       <div class="program-card">
-        <div class="program-icon"><i class="fas fa-code"></i></div>
-        <h3>Digital Diva Bootcamp</h3>
-        <p class="program-description">3-month intensive coding, web development, and tech literacy course. Includes mentorship from women in STEM.</p>
-        <a href="volunteer.html" class="program-link">Join Waitlist <i class="fas fa-arrow-right"></i></a>
+        <div class="program-card-bg" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop');"></div>
+        <div class="program-card-content">
+          <div class="program-icon"><i class="fas fa-code"></i></div>
+          <h3>Digital Diva Bootcamp</h3>
+          <p class="program-description">3-month intensive coding, web development, and tech literacy course. Includes mentorship from women in STEM.</p>
+          <a href="volunteer.html" class="program-link">Join Waitlist <i class="fas fa-arrow-right"></i></a>
+        </div>
       </div>
       
-      <!-- Program 2 -->
+      <!-- Program 2: LeadHERship Circle -->
       <div class="program-card">
-        <div class="program-icon"><i class="fas fa-users"></i></div>
-        <h3>LeadHERship Circle</h3>
-        <p class="program-description">Executive leadership training, public speaking mastery, and exclusive networking with top female executives.</p>
-        <a href="volunteer.html" class="program-link">Apply Now <i class="fas fa-arrow-right"></i></a>
+        <div class="program-card-bg" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop');"></div>
+        <div class="program-card-content">
+          <div class="program-icon"><i class="fas fa-users"></i></div>
+          <h3>LeadHERship Circle</h3>
+          <p class="program-description">Executive leadership training, public speaking mastery, and exclusive networking with top female executives.</p>
+          <a href="volunteer.html" class="program-link">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
       </div>
       
-      <!-- Program 3 -->
+      <!-- Program 3: Wellness Warriors -->
       <div class="program-card">
-        <div class="program-icon"><i class="fas fa-leaf"></i></div>
-        <h3>Wellness Warriors</h3>
-        <p class="program-description">Mental health first aid, community healing circles, and self-defense workshops for holistic wellbeing.</p>
-        <a href="volunteer.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        <div class="program-card-bg" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=400&fit=crop');"></div>
+        <div class="program-card-content">
+          <div class="program-icon"><i class="fas fa-leaf"></i></div>
+          <h3>Wellness Warriors</h3>
+          <p class="program-description">Mental health first aid, community healing circles, and self-defense workshops for holistic wellbeing.</p>
+          <a href="volunteer.html" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
       </div>
       
-      <!-- Program 4 -->
+      <!-- Program 4: Financial Freedom Fund -->
       <div class="program-card">
-        <div class="program-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Financial Freedom Fund</h3>
-        <p class="program-description">Budgeting bootcamps, investment basics, and micro-grant opportunities for women-led startups.</p>
-        <a href="#" class="program-link">Get Grant Info <i class="fas fa-arrow-right"></i></a>
+        <div class="program-card-bg" style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=400&fit=crop');"></div>
+        <div class="program-card-content">
+          <div class="program-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Financial Freedom Fund</h3>
+          <p class="program-description">Budgeting bootcamps, investment basics, and micro-grant opportunities for women-led startups.</p>
+          <a href="#" class="program-link">Get Grant Info <i class="fas fa-arrow-right"></i></a>
+        </div>
       </div>
       
-      <!-- Program 5 -->
+      <!-- Program 5: Career Accelerator -->
       <div class="program-card">
-        <div class="program-icon"><i class="fas fa-briefcase"></i></div>
-        <h3>Career Accelerator</h3>
-        <p class="program-description">Resume building, interview preparation, and direct job placement with 50+ partner companies.</p>
-        <a href="volunteer.html" class="program-link">Enroll Now <i class="fas fa-arrow-right"></i></a>
+        <div class="program-card-bg" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop');"></div>
+        <div class="program-card-content">
+          <div class="program-icon"><i class="fas fa-briefcase"></i></div>
+          <h3>Career Accelerator</h3>
+          <p class="program-description">Resume building, interview preparation, and direct job placement with 50+ partner companies.</p>
+          <a href="volunteer.html" class="program-link">Enroll Now <i class="fas fa-arrow-right"></i></a>
+        </div>
       </div>
       
-      <!-- Program 6 -->
+      <!-- Program 6: Global Mentorship Exchange -->
       <div class="program-card">
-        <div class="program-icon"><i class="fas fa-globe"></i></div>
-        <h3>Global Mentorship Exchange</h3>
-        <p class="program-description">Connect women across borders for cross-cultural skill sharing and international collaboration.</p>
-        <a href="contact.html" class="program-link">Partner Up <i class="fas fa-arrow-right"></i></a>
+        <div class="program-card-bg" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop');"></div>
+        <div class="program-card-content">
+          <div class="program-icon"><i class="fas fa-globe"></i></div>
+          <h3>Global Mentorship Exchange</h3>
+          <p class="program-description">Connect women across borders for cross-cultural skill sharing and international collaboration.</p>
+          <a href="contact.html" class="program-link">Partner Up <i class="fas fa-arrow-right"></i></a>
+        </div>
       </div>
+      
     </div>
   </div>
 </section>
