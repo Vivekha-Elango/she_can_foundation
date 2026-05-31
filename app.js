@@ -139,27 +139,27 @@
             const selectInput = this.querySelector('.glass-select');
             const textareaInput = this.querySelector('.glass-textarea');
             
-            if (!nameInput.value.trim()) {
+            if (!nameInput || !nameInput.value.trim()) {
                 alert('Please enter your full name.');
-                nameInput.focus();
+                if (nameInput) nameInput.focus();
                 return;
             }
             
-            if (!emailInput.value.trim()) {
+            if (!emailInput || !emailInput.value.trim()) {
                 alert('Please enter your email address.');
-                emailInput.focus();
+                if (emailInput) emailInput.focus();
                 return;
             }
             
-            if (!selectInput.value || selectInput.value === 'Select an area') {
+            if (!selectInput || !selectInput.value || selectInput.value === 'Select an area') {
                 alert('Please select your area of interest.');
-                selectInput.focus();
+                if (selectInput) selectInput.focus();
                 return;
             }
             
-            if (!textareaInput.value.trim()) {
+            if (!textareaInput || !textareaInput.value.trim()) {
                 alert('Please tell us why you want to volunteer.');
-                textareaInput.focus();
+                if (textareaInput) textareaInput.focus();
                 return;
             }
             
@@ -191,27 +191,27 @@
             const subjectInput = this.querySelector('input[placeholder="Subject"]');
             const messageInput = this.querySelector('.glass-textarea');
             
-            if (!nameInput.value.trim()) {
+            if (!nameInput || !nameInput.value.trim()) {
                 alert('Please enter your full name.');
-                nameInput.focus();
+                if (nameInput) nameInput.focus();
                 return;
             }
             
-            if (!emailInput.value.trim()) {
+            if (!emailInput || !emailInput.value.trim()) {
                 alert('Please enter your email address.');
-                emailInput.focus();
+                if (emailInput) emailInput.focus();
                 return;
             }
             
-            if (!subjectInput.value.trim()) {
+            if (!subjectInput || !subjectInput.value.trim()) {
                 alert('Please enter a subject.');
-                subjectInput.focus();
+                if (subjectInput) subjectInput.focus();
                 return;
             }
             
-            if (!messageInput.value.trim()) {
+            if (!messageInput || !messageInput.value.trim()) {
                 alert('Please enter your message.');
-                messageInput.focus();
+                if (messageInput) messageInput.focus();
                 return;
             }
             
@@ -257,17 +257,23 @@
     }
 
     // ============================================
-    // SMOOTH SCROLL FOR ANCHOR LINKS
+    // SMOOTH SCROLL FOR ANCHOR LINKS WITH OFFSET
     // ============================================
+    
+    const navbarHeight = 80;
     
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            const target = document.querySelector(this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
             if (target) {
                 e.preventDefault();
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const targetPosition = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
@@ -290,6 +296,23 @@
             }, 500);
         }
     });
+
+    // ============================================
+    // FIX FOR HASH LINKS ON PAGE LOAD
+    // ============================================
+    
+    if (window.location.hash) {
+        setTimeout(() => {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                const targetPosition = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
+    }
 
     // ============================================
     // CONSOLE LOG (Development)

@@ -6,11 +6,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* ============================================
-   CSS VARIABLES (Light/Dark Mode Ready)
+   CSS VARIABLES
    ============================================ */
 
 :root {
-  /* Dark Theme Colors - Fixed Dark Mode Only */
+  /* Dark Theme Colors */
   --bg-primary: #0b0f19;
   --bg-secondary: #111827;
   --bg-card: rgba(17, 24, 39, 0.7);
@@ -32,7 +32,6 @@
   --text-primary: #ffffff;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  --text-dark: #1e293b;
   
   /* Border & Shadow */
   --border-glass: rgba(255, 255, 255, 0.08);
@@ -42,12 +41,10 @@
   --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
   --shadow-gold: 0 0 20px rgba(212, 175, 55, 0.15);
   --shadow-blue: 0 0 30px rgba(59, 130, 246, 0.2);
-  --shadow-green: 0 0 20px rgba(16, 185, 129, 0.15);
   
   /* Transitions */
   --transition-fast: all 0.2s ease;
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: all 0.5s ease;
   
   /* Border Radius */
   --radius-sm: 12px;
@@ -56,6 +53,9 @@
   --radius-xl: 32px;
   --radius-2xl: 40px;
   --radius-full: 9999px;
+  
+  /* Navbar Height for spacing */
+  --navbar-height: 80px;
 }
 
 /* ============================================
@@ -70,6 +70,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
 }
 
 body {
@@ -337,8 +338,10 @@ h3 {
   border-bottom: 1px solid var(--border-glass);
   padding: 1rem 0;
   transition: var(--transition-smooth);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1030;
 }
 
@@ -426,6 +429,46 @@ h3 {
   background: var(--accent-gold);
   color: var(--bg-primary);
   border-color: var(--accent-gold);
+}
+
+/* ============================================
+   PAGE HEADER SPACING - FIX FOR FIXED NAVBAR
+   ============================================ */
+
+/* Main container spacing for all pages */
+main, .hero-section, .programs-hero, .contact-hero, .about-split-section, 
+.volunteer-section, .story-section, .programs-section, .form-section {
+  scroll-margin-top: var(--navbar-height);
+}
+
+/* Hero section top padding to avoid navbar overlap */
+.hero-section {
+  padding-top: calc(var(--navbar-height) + 2rem);
+}
+
+/* Programs hero spacing */
+.programs-hero {
+  padding-top: calc(var(--navbar-height) + 2rem);
+}
+
+/* Contact hero spacing */
+.contact-hero {
+  padding-top: calc(var(--navbar-height) + 2rem);
+}
+
+/* Story section spacing */
+.story-section {
+  padding-top: calc(var(--navbar-height) + 1rem);
+}
+
+/* Volunteer section spacing */
+.volunteer-section {
+  padding-top: calc(var(--navbar-height) + 1rem);
+}
+
+/* About split section spacing */
+.about-split-section {
+  padding-top: calc(var(--navbar-height) + 1rem);
 }
 
 /* ============================================
@@ -553,6 +596,16 @@ h3 {
   .footer-contact-item {
     justify-content: center;
   }
+  
+  /* Adjust spacing for mobile */
+  .hero-section {
+    padding-top: calc(var(--navbar-height) + 1rem);
+  }
+  
+  .programs-hero,
+  .contact-hero {
+    padding-top: calc(var(--navbar-height) + 1rem);
+  }
 }
 
 /* ============================================
@@ -676,6 +729,10 @@ h3 {
     right: 20px;
     width: 42px;
     height: 42px;
+  }
+  
+  :root {
+    --navbar-height: 70px;
   }
 }
 
