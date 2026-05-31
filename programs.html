@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="She Can Foundation - Transformative Programs empowering women through education, leadership, and wellness.">
+  <title>She Can Foundation | Transformative Programs</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ============================================
+       PREMIUM DARK THEME DESIGN SYSTEM
+       ============================================ */
+    
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-card: rgba(17, 24, 39, 0.7);
+      --bg-glass: rgba(17, 24, 39, 0.5);
+      --bg-glass-light: rgba(17, 24, 39, 0.6);
+      --accent-gold: #d4af37;
+      --accent-blue: #3b82f6;
+      --text-primary: #ffffff;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border-glass: rgba(255, 255, 255, 0.08);
+      --shadow-gold: 0 0 20px rgba(212, 175, 55, 0.15);
+      --shadow-blue: 0 0 30px rgba(59, 130, 246, 0.2);
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-gold);
+      border-radius: 10px;
+    }
+    
+    /* ============================================
+       NAVIGATION BAR
+       ============================================ */
+    
+    .navbar {
+      background: rgba(11, 15, 25, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-glass);
+      padding: 1rem 0;
+    }
+    
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .navbar-brand i {
+      color: var(--accent-gold);
+      margin-right: 8px;
+    }
+    
+    .nav-link {
+      color: var(--text-secondary);
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+    }
+    
+    .nav-link i {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-gold);
+    }
+    
+    .nav-link:hover i,
+    .nav-link.active i {
+      color: var(--accent-gold);
+    }
+    
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-gold), #ffd700);
+      border-radius: 3px;
+      animation: slideIn 0.3s ease;
+    }
+    
+    @keyframes slideIn {
+      from {
+        width: 0;
+        opacity: 0;
+      }
+      to {
+        width: 30px;
+        opacity: 1;
+      }
+    }
+    
+    .nav-icon-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-glass);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: var(--transition-smooth);
+      cursor: pointer;
+    }
+    
+    .nav-icon-btn:hover {
+      background: var(--accent-gold);
+      color: var(--bg-primary);
+      border-color: var(--accent-gold);
+    }
+    
+    /* ============================================
+       PROGRAMS HERO SECTION
+       ============================================ */
+    
+    .programs-hero {
+      text-align: center;
+      padding: 5rem 0 2rem;
+    }
+    
+    .programs-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+    
+    .gradient-gold {
+      background: linear-gradient(135deg, var(--accent-gold), #ffd700);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    
+    .programs-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+    }
+    
+    /* ============================================
+       PROGRAMS GRID - SAME HEIGHT & WIDTH CARDS
+       ============================================ */
+    
+    .programs-section {
+      padding: 2rem 0 4rem;
+    }
+    
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    
+    /* All cards have identical dimensions */
+    .program-card {
+      position: relative;
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glass);
+      border-radius: 28px;
+      padding: 2rem;
+      transition: var(--transition-smooth);
+      overflow: hidden;
+      height: 100%;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Faded background images - DIFFERENT UNIQUE IMAGES for each card */
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    /* Card 1 - Digital Diva Bootcamp - Women coding/tech */
+    .program-card:nth-child(1)::before {
+      background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop');
+    }
+    
+    /* Card 2 - LeadHERship Circle - Women in meeting/leadership */
+    .program-card:nth-child(2)::before {
+      background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop');
+    }
+    
+    /* Card 3 - Wellness Warriors - Yoga/wellness/meditation */
+    .program-card:nth-child(3)::before {
+      background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop');
+    }
+    
+    /* Card 4 - Financial Freedom Fund - Money/coins/business */
+    .program-card:nth-child(4)::before {
+      background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=600&fit=crop');
+    }
+    
+    /* Card 5 - Career Accelerator - Office/professional */
+    .program-card:nth-child(5)::before {
+      background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop');
+    }
+    
+    /* Card 6 - Global Mentorship Exchange - Global/people/world */
+    .program-card:nth-child(6)::before {
+      background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop');
+    }
+    
+    .program-card:hover::before {
+      opacity: 0.28;
+    }
+    
+    .program-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-gold);
+      box-shadow: var(--shadow-gold);
+    }
+    
+    .program-card-content {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .program-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.08));
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      transition: var(--transition-smooth);
+    }
+    
+    .program-card:hover .program-icon {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.15));
+      transform: scale(1.05);
+      border-color: var(--accent-gold);
+    }
+    
+    .program-icon i {
+      font-size: 1.8rem;
+      color: var(--accent-gold);
+    }
+    
+    .program-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .program-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      flex: 1;
+    }
+    
+    .program-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition-smooth);
+      padding: 8px 0;
+      margin-top: auto;
+      width: fit-content;
+    }
+    
+    .program-link i {
+      transition: transform 0.3s ease;
+    }
+    
+    .program-link:hover {
+      gap: 12px;
+      text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    }
+    
+    .program-link:hover i {
+      transform: translateX(4px);
+    }
+    
+    /* ============================================
+       FOOTER
+       ============================================ */
+    
+    .footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-glass);
+      padding: 4rem 0 2rem;
+      margin-top: 4rem;
+    }
+    
+    .footer h5 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+    
+    .footer p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      transition: var(--transition-smooth);
+    }
+    
+    .social-icon:hover {
+      background: var(--accent-gold);
+      color: var(--bg-primary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+    
+    .footer-contact-item i {
+      color: var(--accent-gold);
+      width: 20px;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid var(--border-glass);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    
+    /* Scroll to Top Button */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-smooth);
+      z-index: 999;
+      border: none;
+    }
+    
+    .scroll-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .scroll-top:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-gold);
+    }
+    
+    /* ============================================
+       RESPONSIVE DESIGN
+       ============================================ */
+    
+    @media (max-width: 992px) {
+      .programs-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .programs-grid {
+        gap: 1.5rem;
+      }
+      
+      .program-card {
+        min-height: 360px;
+        padding: 1.5rem;
+      }
+      
+      .program-card h3 {
+        font-size: 1.3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .programs-hero {
+        padding: 3rem 0 1rem;
+      }
+      
+      .programs-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .programs-subtitle {
+        font-size: 1rem;
+      }
+      
+      .programs-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .program-card {
+        min-height: 350px;
+        padding: 1.5rem;
+      }
+      
+      .program-card h3 {
+        font-size: 1.2rem;
+      }
+      
+      .footer {
+        text-align: center;
+      }
+      
+      .social-icons {
+        justify-content: center;
+      }
+      
+      .footer-contact-item {
+        justify-content: center;
+      }
+    }
+    
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-up {
+      animation: fadeUp 0.6s ease forwards;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sticky Navigation Bar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <i class="fas fa-fist-raised"></i> She Can Foundation
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-center gap-2">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">
+            <i class="fas fa-user"></i> About
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="programs.html">
+            <i class="fas fa-users"></i> Programs
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="volunteer.html">
+            <i class="fas fa-heart"></i> Volunteer
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">
+            <i class="fas fa-envelope"></i> Contact
+          </a>
+        </li>
+        <li class="nav-item ms-2">
+          <div class="nav-icon-btn">
+            <i class="fas fa-cog"></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Programs Hero Section -->
+<section class="programs-hero">
+  <div class="container">
+    <h1>Transformative <span class="gradient-gold">Programs</span></h1>
+    <p class="programs-subtitle">Empowerment journeys designed for real, lasting impact</p>
+  </div>
+</section>
+
+<!-- Programs Grid - 6 Cards with Same Height & Unique Images -->
+<section class="programs-section">
+  <div class="container">
+    <div class="programs-grid">
+      
+      <!-- Program 1: Digital Diva Bootcamp -->
+      <div class="program-card">
+        <div class="program-card-content">
+          <div class="program-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Digital Diva Bootcamp</h3>
+          <p class="program-description">3-month intensive coding, web development, and tech literacy course. Includes mentorship from women in STEM.</p>
+          <a href="volunteer.html" class="program-link">
+            Join Waitlist <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Program 2: LeadHERship Circle -->
+      <div class="program-card">
+        <div class="program-card-content">
+          <div class="program-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>LeadHERship Circle</h3>
+          <p class="program-description">Executive leadership training, public speaking mastery, and exclusive networking with top female executives.</p>
+          <a href="volunteer.html" class="program-link">
+            Apply Now <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Program 3: Wellness Warriors -->
+      <div class="program-card">
+        <div class="program-card-content">
+          <div class="program-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Wellness Warriors</h3>
+          <p class="program-description">Mental health first aid, community healing circles, and self-defense workshops for holistic wellbeing.</p>
+          <a href="volunteer.html" class="program-link">
+            Learn More <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Program 4: Financial Freedom Fund -->
+      <div class="program-card">
+        <div class="program-card-content">
+          <div class="program-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Financial Freedom Fund</h3>
+          <p class="program-description">Budgeting bootcamps, investment basics, and micro-grant opportunities for women-led startups.</p>
+          <a href="#" class="program-link">
+            Get Grant Info <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Program 5: Career Accelerator -->
+      <div class="program-card">
+        <div class="program-card-content">
+          <div class="program-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3>Career Accelerator</h3>
+          <p class="program-description">Resume building, interview preparation, and direct job placement with 50+ partner companies.</p>
+          <a href="volunteer.html" class="program-link">
+            Enroll Now <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Program 6: Global Mentorship Exchange -->
+      <div class="program-card">
+        <div class="program-card-content">
+          <div class="program-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Global Mentorship Exchange</h3>
+          <p class="program-description">Connect women across borders for cross-cultural skill sharing and international collaboration.</p>
+          <a href="contact.html" class="program-link">
+            Partner Up <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5>She Can Foundation</h5>
+        <p>Empowering women to reach their full potential through education, leadership, and wellness.</p>
+      </div>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5>Connect With Us</h5>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact</h5>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>president@shecanfoundation.org</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone"></i>
+          <span>Contact: +91-8283841830</span>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 She Can Foundation. Every Woman Deserves an Opportunity to Grow.
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-top" id="scrollTopBtn">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Scroll to Top Button
+  const scrollBtn = document.getElementById('scrollTopBtn');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add('show');
+    } else {
+      scrollBtn.classList.remove('show');
+    }
+  });
+  
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  
+  // Fade up animation on scroll
+  const fadeElements = document.querySelectorAll('.program-card');
+  
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-up');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  fadeElements.forEach(el => fadeObserver.observe(el));
+  
+  // Navbar active link
+  const currentPage = window.location.pathname.split('/').pop() || 'programs.html';
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage) {
+      link.classList.add('active');
+    }
+  });
+</script>
+
+</body>
+</html>
