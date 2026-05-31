@@ -9,7 +9,31 @@
    CSS VARIABLES
    ============================================ */
 
-:root {
+/* Critical fix for navbar spacing */
+body {
+  padding-top: 0;
+  margin: 0;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar-spacer {
+  height: 85px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .navbar-spacer {
+    height: 75px;
+  }
+}
+   :root {
   --bg-primary: #0b0f19;
   --bg-secondary: #111827;
   --bg-card: rgba(17, 24, 39, 0.7);
